@@ -9,10 +9,12 @@ trainingText.innerText = "hello world";
 
 inputText.addEventListener("keypress", (event) => {
   if (event.key == trainingText.innerText[count]) {
-    // trainingText.innerHTML = trainingText.innerHTML.replace(
-    //   trainingText.innerText[count],
-    //   '<span style="color: red;">' + trainingText.innerText[count] + "</span>"
-    // );
+    trainingText.innerHTML =
+      "<span style = 'color: green'>" +
+      trainingText.innerText.slice(0, inputText.value.length + 1) +
+      "</span>" +
+      trainingText.innerText.slice(inputText.value.length + 1);
+
     for (let i = 0; i < divs.length; i++) {
       if (event.key == divs[i].innerText) {
         divs[i].style.backgroundColor = "red";
@@ -25,6 +27,11 @@ inputText.addEventListener("keypress", (event) => {
   } else if (event.key != trainingText.innerText[count]) {
     mistakesCount++;
     mistakesPlace.innerText = `Mistakes: ${mistakesCount}`;
+  }
+
+  if (trainingText.innerText == inputText.value) {
+    alert(`You did it!\nYou have ${mistakesCount} mistakes`);
+    location.reload();
   }
   event.preventDefault();
 });
