@@ -35,3 +35,11 @@ body {
   padding: 25%;
   font-size: 1.6em;
 }
+
+/*MISTAKES COUNT*/
+#mistakes {
+  position: absolute;
+  top: 1%;
+  right: 4%;
+  font-size: 1.5em;
+}

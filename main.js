@@ -1,6 +1,8 @@
 const inputText = document.getElementById("input");
 const divs = document.querySelectorAll("div");
+const mistakesPlace = document.getElementById("mistakes");
 let trainingText = document.getElementById("training-text");
+let mistakesCount = 0;
 let count = 0;
 
 trainingText.innerText = "hello world";
@@ -20,6 +22,9 @@ inputText.addEventListener("keypress", (event) => {
     }
     inputText.value += event.key;
     count++;
+  } else if (event.key != trainingText.innerText[count]) {
+    mistakesCount++;
+    mistakesPlace.innerText = `Mistakes: ${mistakesCount}`;
   }
   event.preventDefault();
 });
