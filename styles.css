@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -11,4 +15,21 @@
 .main > input {
   font-size: 2em;
   outline: none;
+}
+
+.keyboard {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-self: center;
+  grid-template-columns: repeat(12, 5%);
+  grid-gap: 1px;
+  margin-top: 5%;
+}
+
+.keyboard > div {
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 25%;
 }
