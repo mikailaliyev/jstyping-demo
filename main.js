@@ -5,16 +5,20 @@ let trainingText = document.getElementById("training-text");
 let mistakesCount = 0;
 let count = 0;
 
+//Setting up some training text, 
+//but it is better to fetch some text from online resources in the future
 trainingText.innerText = "hello world";
 
+//Main event listener
 inputText.addEventListener("keypress", (event) => {
   if (event.key == trainingText.innerText[count]) {
+    //Changing the color of training text if it is typed right
     trainingText.innerHTML =
       "<span style = 'color: green'>" +
       trainingText.innerText.slice(0, inputText.value.length + 1) +
       "</span>" +
       trainingText.innerText.slice(inputText.value.length + 1);
-
+    //Changing the color of pressed keys on the virtual keyboard
     for (let i = 0; i < divs.length; i++) {
       if (event.key == divs[i].innerText) {
         divs[i].style.backgroundColor = "red";
@@ -24,11 +28,13 @@ inputText.addEventListener("keypress", (event) => {
     }
     inputText.value += event.key;
     count++;
-  } else if (event.key != trainingText.innerText[count]) {
+  } 
+  //Counting mistakes
+  else if (event.key != trainingText.innerText[count]) {
     mistakesCount++;
     mistakesPlace.innerText = `Mistakes: ${mistakesCount}`;
   }
-
+  //The results. It should designed better rather than a simple alert box!
   if (trainingText.innerText == inputText.value) {
     alert(`You did it!\nYou have ${mistakesCount} mistakes`);
     location.reload();
@@ -36,4 +42,5 @@ inputText.addEventListener("keypress", (event) => {
   event.preventDefault();
 });
 
+//Clearing input on reload
 window.onload = () => (inputText.value = "");
