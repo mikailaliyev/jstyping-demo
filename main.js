@@ -2,6 +2,36 @@ const inputText = document.getElementById("input");
 const divs = document.querySelectorAll("div");
 const mistakesPlace = document.getElementById("mistakes");
 let trainingText = document.getElementById("training-text");
+const keyCodes = [
+  " ",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "g",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 let mistakesCount = 0;
 let count = 0;
 
@@ -11,6 +41,9 @@ trainingText.innerText = "hello world";
 
 //Main event listener
 inputText.addEventListener("keydown", (event) => {
+  if (!keyCodes.includes(event.key)) {
+    alert("Not US Layout");
+  }
   if (event.key == trainingText.innerText[count]) {
     //Changing the color of training text if it is typed right
     trainingText.innerHTML =
