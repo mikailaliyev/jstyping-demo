@@ -37,9 +37,14 @@ body {
 }
 
 /*MISTAKES COUNT*/
-#mistakes {
+.specs {
   position: absolute;
+  width: 10%;
+  padding: 1%;
   top: 1%;
-  right: 4%;
-  font-size: 1.5em;
+  right: 0.5%;
+  font-size: 1.2em;
+  text-align: left;
+  border: 2px solid gray;
+  border-radius: 5px;
 }
