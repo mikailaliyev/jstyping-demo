@@ -1,7 +1,8 @@
 const inputText = document.getElementById("input");
 const divs = document.querySelectorAll("div");
 const mistakesPlace = document.getElementById("mistakes");
-let trainingText = document.getElementById("training-text");
+const typingSpeed = document.getElementById("typing-speed");
+
 const keyCodes = [
   " ",
   "a",
@@ -32,19 +33,25 @@ const keyCodes = [
   "y",
   "z",
 ];
+let trainingText = document.getElementById("training-text");
 let mistakesCount = 0;
 let count = 0;
+let allKeysSum = 0;
 
 //Setting up some training text,
 //but it is better to fetch some text from online resources in the future
-trainingText.innerText = "hello world";
+trainingText.innerText = "hello world brothers how are you doing?";
 
 //Main event listener
 inputText.addEventListener("keydown", (event) => {
+  getSec = new Date().getSeconds();
+
   if (!keyCodes.includes(event.key)) {
     alert("Not US Layout");
   }
   if (event.key == trainingText.innerText[count]) {
+    allKeysSum++;
+    typingSpeed.innerText = `Speed: ${allKeysSum / 5 / getSec / 60}`;
     //Changing the color of training text if it is typed right
     trainingText.innerHTML =
       "<span style = 'color: green'>" +
