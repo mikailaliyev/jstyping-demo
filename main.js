@@ -33,6 +33,16 @@ const keyCodes = [
   "z",
   ".",
   ",",
+  "!",
+  "?",
+  "space",
+  "sackspace",
+  "Shift",
+  "alt",
+  "control",
+  "capslock",
+  "enter",
+  "/",
 ];
 let trainingText = document.getElementById("training-text");
 let mistakesCount = 0;
@@ -47,7 +57,7 @@ trainingText.innerText = "hello world brothers how are you doing.";
 inputText.addEventListener("keydown", (event) => {
   getSec = new Date().getSeconds();
 
-  if (!keyCodes.includes(event.key)) {
+  if (!keyCodes.includes(event.key.toLocaleLowerCase())) {
     alert("Not US Layout");
   }
   if (event.key == trainingText.innerText[count]) {
@@ -56,6 +66,7 @@ inputText.addEventListener("keydown", (event) => {
     typingSpeed.innerText = `Speed: ${Math.ceil(
       allKeysSum / (getSec / 60)
     )} wps`;
+
     //Changing the color of training text if it is typed right
     trainingText.innerHTML =
       "<span style = 'color: green'>" +
